@@ -17,19 +17,11 @@ const imgConfig = multer.diskStorage({
         callback(null,  `image-${Date.now()}-${file.originalname}`);
     }
 });
-const isImg = (req, file, callback)=>{
-    if(file.mimetype.startsWith('image')){
-        callback(null, true)
-    } else{
-        res.status(401).json({status:401, msg:"Only Images are allowed"});
-
-    }
-}
 
 
 const upload = multer({
-    storage: imgConfig,
-    fileFilter: isImg
+    storage: imgConfig
+  
 })
 
 screenrouter.post('/upload', authenticate, upload.single('photo'),async(req, res)=>{
