@@ -13,7 +13,13 @@ const messagerouter = require("./routes/messageRoute.js");
 const orderrouter = require("./routes/orderRoute.js");
 
 
-app.use(cors());
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
 app.use(express.json());
 require('./db/DB.js');
 app.use('/user', userrouter);
