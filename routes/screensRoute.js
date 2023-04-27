@@ -11,7 +11,7 @@ const ScreenDB = require('../models/screenshotModel.js')
 
 const imgConfig = multer.diskStorage({
     destination: (req,file, callback)=>{
-       callback(null, path.join(__dirname, '/uploads/'));
+       callback(null, 'C:\Users\Administrator\Desktop\MLM\server\uploads');
     },
     filename: (req, file, callback)=>{
         callback(null,  `image-${Date.now()}-${file.originalname}`);
