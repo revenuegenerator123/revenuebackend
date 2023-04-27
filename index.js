@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
-const bodyParser = require("body-parser");
 const userrouter = require('./routes/userRouter.js');
 const screenrouter = require('./routes/screensRoute.js');
 const billingrouter = require('./routes/billingRoute.js');
@@ -13,14 +12,8 @@ const awardrouter = require("./routes/awardRoute.js");
 const messagerouter = require("./routes/messageRoute.js");
 const orderrouter = require("./routes/orderRoute.js");
 
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-
 const corsOptions ={
-    origin:'http://localhost:3000', 
+   
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
